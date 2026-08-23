@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Техніка і технології — Навчальний портал</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f3f4f6;
+            color: #1f2937;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: #1e293b;
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            color: #94a3b8;
+            font-size: 1rem;
+        }
+
+        nav {
+            background-color: #0f172a;
+            padding: 0.5rem;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-link {
+            color: #cbd5e1;
+            text-decoration: none;
+            padding: 0.6rem 1.2rem;
+            border-radius: 0.375rem;
+            font-weight: 500;
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+
+        .nav-link:hover {
+            background-color: #334155;
+            color: white;
+        }
+
+        .active-btn {
+            background-color: #10b981 !important;
+            color: white !important;
+        }
+
+        main {
+            flex: 1;
+            max-width: 1200px;
+            width: 100%;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .section {
+            display: none;
+            background: white;
+            padding: 2rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .active {
+            display: block !important;
+        }
+
+        .section h1 {
+            font-size: 1.75rem;
+            color: #0f172a;
+            margin-bottom: 0.5rem;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 0.5rem;
+        }
+
+        .section p {
+            color: #4b5563;
+            margin-bottom: 1.5rem;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+            align-items: stretch;
+        }
+
+        .card {
+            background-color: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+
+        .card h3 {
+            font-size: 1.2rem;
+            color: #1e293b;
+            margin-bottom: 0.5rem;
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            color: #64748b;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .btn {
+            display: block;
+            width: 100%;
+            text-align: center;
+            background-color: #2563eb;
+            color: white;
+            text-decoration: none;
+            padding: 0.7rem;
+            border-radius: 0.375rem;
+            font-weight: 500;
+            transition: background-color 0.2s;
+            border: none;
+        }
+
+        .btn:hover {
+            background-color: #1d4ed8;
+        }
+
+        .btn-presentation {
+            background-color: #10b981 !important;
+        }
+
+        .btn-presentation:hover {
+            background-color: #059669 !important;
+        }
+
+        .img-fluid {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+            border-radius: 0.5rem;
+            margin: 1.5rem 0;
+        }
+
+        footer {
+            background-color: #1e293b;
+            color: #94a3b8;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 2rem;
+            font-size: 0.9rem;
+            border-top: 4px solid #10b981;
+        }
+
+        footer p {
+            margin-bottom: 0.25rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Техніка і технології</h1>
+        <p>Навчально-методичний портал для підготовки менеджерів виробничої сфери</p>
+    </header>
+
+    <nav>
+        <div class="nav-link active-btn" data-target="home">🏠 Головна</div>
+        <div class="nav-link" data-target="syllabus">📋 Силабус</div>
+        <div class="nav-link" data-target="program">📅 Робочая програма</div>
+        <div class="nav-link" data-target="presentations">📊 Презентації</div>
+        <div class="nav-link" data-target="lectures">📄 Лекції</div>
+        <div class="nav-link" data-target="practical">🛠️ Практичні</div>
+        <div class="nav-link" data-target="laboratory">🧪 Лабораторні</div>
+        <div class="nav-link" data-target="control">📝 Контроль</div>
+    </nav>
+
+    <main>
+        <!-- Головна сторінка -->
+        <div id="home" class="section active">
+            <h1>Вітаємо на навчальному порталі!</h1>
+            <p>Цей вебресурс створено для інформаційного та методичного забезпечення студентів Хмельницького політехнічного фахового коледжу під час вивчення дисципліни «Техніка і технології».</p>
+            <img src="https://unsplash.com" alt="Виробнича сфера та технології" class="img-fluid">
+            <p style="font-size: 1.05rem; line-height: 1.6; color: #4b5563;">Дисципліна спрямована на формування у майбутніх менеджерів системного розуміння будови сучасного виробництва, базових технічних засобів та ключових технологічних процесів. Отримані знання дозволять ефективно керувати трудовими колективами, приймати обґрунтовані управлінські рішення та забезпечувати високу конкурентоспроможність промислових підприємств.</p>
+        </div>
+
+        <!-- Силабус -->
+        <div id="syllabus" class="section">
+            <h1>Силабус дисципліни</h1>
+            <p>Нормативні документи навчальної дисципліни:</p>
+            <div class="cards-grid">
+                <!-- Сюди додамо картку силабусу -->
+            </div>
+        </div>
+
+        <!-- Робоча програма -->
+        <div id="program" class="section">
+            <h1>Робоча програма</h1>
+            <p>Календарно-тематичний план та робоча програма вивчення курсу:</p>
+            <div class="cards-grid">
+                <!-- Сюди додамо картку робочої програми -->
+            </div>
+        </div>
+
+        <!-- Презентації -->
+        <div id="presentations" class="section">
+            <h1>Мультимедійні презентації</h1>
+            <p>Візуальні матеріали до лекційного курсу:</p>
+            <div class="cards-grid">
+
+<!-- Картка: Презентація 1.1 -->
+<div class="card">
+    <h3>Презентація до теми 1.1</h3>
+    <p>Тема: Виробничий та технологічний процеси.</p>
+    <a href="https://docs.google.com/presentation/d/1yukXR_tUF_5nFGkXlkMbezXEcxDAj3K5/edit?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn btn-presentation" style="margin-top: 0.5rem;">📊 Відкрити презентацію</a>
+</div>
+
+<!-- Картка: Презентація 1.2 -->
+<div class="card">
+    <h3>Презентація до теми 1.2</h3>
+    <p>Тема: Типи виробництва.</p>
+    <a href="https://docs.google.com/presentation/d/1wGI2ulfEH00Jl21mXozfnJbFGkJTrB9v/edit?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn btn-presentation" style="margin-top: 0.5rem;">📊 Відкрити презентацію</a>
+</div>
+
+            </div>
+        </div>
+
+        <!-- Лекції -->
+        <div id="lectures" class="section">
+            <h1>Курс лекцій</h1>
+            <p>Теоретичний матеріал для вивчення дисципліни:</p>
+            <div class="cards-grid">
+                <!-- Сюди додамо картки лекцій -->
+            </div>
+        </div>
+
+        <!-- Практичні -->
+        <div id="practical" class="section">
+            <h1>Практичні роботи</h1>
+            <p>Методичні матеріали для виконання практичних занять:</p>
+            <div class="cards-grid">
+                <!-- Сюди додамо картки практичних робіт -->
+            </div>
+        </div>
+
+        <!-- Лабораторні -->
+        <div id="laboratory" class="section">
+            <h1>Лабораторні роботи</h1>
+            <p>Інструкції та бланки для проведення лабораторних досліджень:</p>
+            <div class="cards-grid">
+                <!-- Сюди додамо картки лабораторних робіт -->
+            </div>
+        </div>
+
+        <!-- Контроль знань -->
+        <div id="control" class="section">
+            <h1>Контроль знань</h1>
+            <p>Тематичні тести для перевірки знань студентів:</p>
+            <div class="cards-grid">
+                <!-- Сюди додамо тести -->
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; Навчальний портал з дисципліни «Техніка і технології».</p>
+        <p>Автор: Фрімерштейн Григорій, викладач-методист вищої категорії Хмельницького політехнічного фахового коледжу Національного університету "Львівська політехніка".</p>
+    </footer>
+
+    <script>
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active-btn'));
+                this.classList.add('active-btn');
+                const targetId = this.getAttribute('data-target');
+                document.querySelectorAll('.section').forEach(section => {
+                    section.classList.remove('active');
+                });
+                document.getElementById(targetId).classList.add('active');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        });
+    </script>
+</body>
+</html>
